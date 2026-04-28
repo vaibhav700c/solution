@@ -1,0 +1,288 @@
+import {
+  Asset,
+  ThreatEvent,
+  BotDetection,
+  BlockchainRecord,
+  MediaVerification,
+  AnalyticsMetric,
+  PerformanceData,
+  PlatformStatus,
+  SwarmLog,
+  RegistrationRequest,
+} from './types';
+
+export const mockAssets: Asset[] = [
+  {
+    id: '1',
+    name: 'branded-commercial-2024.mp4',
+    type: 'video',
+    uploadDate: new Date('2024-03-15'),
+    size: 2480,
+    dnaProfile: 'DNA_8A2F4C',
+    watermarkStatus: 'protected',
+    detections: 12,
+  },
+  {
+    id: '2',
+    name: 'product-photography-series.jpg',
+    type: 'image',
+    uploadDate: new Date('2024-03-10'),
+    size: 4200,
+    dnaProfile: 'DNA_5K9L1M',
+    watermarkStatus: 'protected',
+    detections: 5,
+  },
+  {
+    id: '3',
+    name: 'confidential-research-report.pdf',
+    type: 'document',
+    uploadDate: new Date('2024-03-20'),
+    size: 1240,
+    dnaProfile: 'DNA_7X3P2Q',
+    watermarkStatus: 'protected',
+    detections: 0,
+  },
+  {
+    id: '4',
+    name: 'marketing-jingle.mp3',
+    type: 'audio',
+    uploadDate: new Date('2024-02-28'),
+    size: 8900,
+    dnaProfile: 'DNA_2R6T9W',
+    watermarkStatus: 'compromised',
+    detections: 34,
+  },
+  {
+    id: '5',
+    name: 'design-mockups-collection.jpg',
+    type: 'image',
+    uploadDate: new Date('2024-03-18'),
+    size: 5600,
+    dnaProfile: 'DNA_4N8J2L',
+    watermarkStatus: 'protected',
+    detections: 2,
+  },
+];
+
+export const mockThreatEvents: ThreatEvent[] = [
+  {
+    id: '1',
+    type: 'unauthorized_copy',
+    severity: 'critical',
+    assetName: 'branded-commercial-2024.mp4',
+    location: 'youtube.com/watch?v=abc123',
+    timestamp: new Date(Date.now() - 2 * 60000),
+    evidence: 'Full HD copy detected on streaming platform',
+    status: 'active',
+  },
+  {
+    id: '2',
+    type: 'deepfake',
+    severity: 'high',
+    assetName: 'product-photography-series.jpg',
+    location: 'social.deepfake.ai',
+    timestamp: new Date(Date.now() - 15 * 60000),
+    evidence: 'AI-generated derivative detected',
+    status: 'active',
+  },
+  {
+    id: '3',
+    type: 'metadata_strip',
+    severity: 'medium',
+    assetName: 'design-mockups-collection.jpg',
+    location: 'pinterest.com',
+    timestamp: new Date(Date.now() - 45 * 60000),
+    evidence: 'Metadata removed, copyright tags stripped',
+    status: 'resolved',
+  },
+  {
+    id: '4',
+    type: 'distribution',
+    severity: 'high',
+    assetName: 'marketing-jingle.mp3',
+    location: 'telegram.com/piracy_group',
+    timestamp: new Date(Date.now() - 120 * 60000),
+    evidence: 'Detected in 47 piracy channels',
+    status: 'active',
+  },
+  {
+    id: '5',
+    type: 'unauthorized_copy',
+    severity: 'medium',
+    assetName: 'confidential-research-report.pdf',
+    location: 'pastebin.com',
+    timestamp: new Date(Date.now() - 300 * 60000),
+    evidence: 'Full text found in public paste',
+    status: 'resolved',
+  },
+];
+
+export const mockBotDetections: BotDetection[] = [
+  {
+    id: '1',
+    botId: 'BOT_7F2K',
+    botName: 'ContentScraper_v3',
+    networkId: 'SWARM_42',
+    lastSeen: new Date(Date.now() - 5 * 60000),
+    assetsCompromised: 23,
+    threat: 'scraper',
+    activity: 'Aggressive HTML scraping from media platforms',
+  },
+  {
+    id: '2',
+    botId: 'BOT_3M9X',
+    botName: 'DeepfakeGen_AI',
+    networkId: 'SWARM_42',
+    lastSeen: new Date(Date.now() - 12 * 60000),
+    assetsCompromised: 156,
+    threat: 'deepfake_generator',
+    activity: 'Training synthetic models with stolen media',
+  },
+  {
+    id: '3',
+    botId: 'BOT_5L1N',
+    botName: 'SpamDistributor_Pro',
+    networkId: 'SWARM_58',
+    lastSeen: new Date(Date.now() - 25 * 60000),
+    assetsCompromised: 89,
+    threat: 'distributor',
+    activity: 'Automatic cross-posting to piracy networks',
+  },
+  {
+    id: '4',
+    botId: 'BOT_8K4R',
+    botName: 'MetadataStripper',
+    networkId: 'SWARM_42',
+    lastSeen: new Date(Date.now() - 45 * 60000),
+    assetsCompromised: 56,
+    threat: 'scraper',
+    activity: 'Removing digital signatures and watermarks',
+  },
+];
+
+export const mockSwarmLogs: SwarmLog[] = [
+  {
+    id: '1',
+    timestamp: new Date(Date.now() - 3600000),
+    action: 'SWARM_DETECTED',
+    botsInvolved: 12,
+    assetsAffected: ['branded-commercial-2024.mp4', 'product-photography-series.jpg'],
+    response: 'Activated counter-intelligence measures',
+  },
+  {
+    id: '2',
+    timestamp: new Date(Date.now() - 7200000),
+    action: 'COORDINATED_ATTACK',
+    botsInvolved: 34,
+    assetsAffected: ['marketing-jingle.mp3', 'design-mockups-collection.jpg'],
+    response: 'Deployed blockchain verification signatures',
+  },
+  {
+    id: '3',
+    timestamp: new Date(Date.now() - 10800000),
+    action: 'DISTRIBUTION_RING',
+    botsInvolved: 8,
+    assetsAffected: ['confidential-research-report.pdf'],
+    response: 'Legal action initiated via DMCA',
+  },
+];
+
+export const mockBlockchainRecords: BlockchainRecord[] = [
+  {
+    id: '1',
+    assetId: '1',
+    assetName: 'branded-commercial-2024.mp4',
+    owner: 'MediaCorp Inc.',
+    hash: '0x7f8c2a3d4e5b6c9a1d8e3f2g',
+    timestamp: new Date('2024-03-15'),
+    status: 'verified',
+    txHash: '0x123abc...def456',
+  },
+  {
+    id: '2',
+    assetId: '2',
+    assetName: 'product-photography-series.jpg',
+    owner: 'Creative Studios LLC',
+    hash: '0x5k9l1m2n3p4q5r6s7t8u',
+    timestamp: new Date('2024-03-10'),
+    status: 'verified',
+    txHash: '0x789ghi...jkl012',
+  },
+  {
+    id: '3',
+    assetId: '4',
+    assetName: 'marketing-jingle.mp3',
+    owner: 'AudioBrand Solutions',
+    hash: '0x2r6t9w3x4y5z6a7b8c',
+    timestamp: new Date('2024-02-28'),
+    status: 'verified',
+    txHash: '0xdef345...ghi678',
+  },
+];
+
+export const mockRegistrationRequests: RegistrationRequest[] = [
+  {
+    id: '1',
+    assetName: 'new-campaign-video.mp4',
+    owner: 'MarketingTeam',
+    assetType: 'video',
+    requestDate: new Date(Date.now() - 2 * 3600000),
+    status: 'pending',
+  },
+  {
+    id: '2',
+    assetName: 'product-launch-graphics.jpg',
+    owner: 'DesignDept',
+    assetType: 'image',
+    requestDate: new Date(Date.now() - 5 * 3600000),
+    status: 'pending',
+  },
+];
+
+export const mockMediaVerifications: MediaVerification[] = [
+  {
+    id: '1',
+    mediaUrl: 'https://example.com/media/product.jpg',
+    fileName: 'product.jpg',
+    verified: true,
+    confidence: 98.5,
+    authenticity: 'Original content confirmed by DNA match',
+    scanDate: new Date(),
+  },
+  {
+    id: '2',
+    mediaUrl: 'https://example.com/media/video.mp4',
+    fileName: 'video.mp4',
+    verified: false,
+    confidence: 23.2,
+    authenticity: 'High evidence of deepfake manipulation',
+    scanDate: new Date(),
+  },
+];
+
+export const mockAnalyticsData: AnalyticsMetric[] = [
+  { date: new Date('2024-03-01'), detections: 12, assetsProtected: 45, botsBlocked: 8, revenue: 2400 },
+  { date: new Date('2024-03-02'), detections: 19, assetsProtected: 52, botsBlocked: 12, revenue: 2210 },
+  { date: new Date('2024-03-03'), detections: 8, assetsProtected: 48, botsBlocked: 5, revenue: 2290 },
+  { date: new Date('2024-03-04'), detections: 34, assetsProtected: 78, botsBlocked: 24, revenue: 2000 },
+  { date: new Date('2024-03-05'), detections: 26, assetsProtected: 65, botsBlocked: 18, revenue: 2181 },
+  { date: new Date('2024-03-06'), detections: 38, assetsProtected: 92, botsBlocked: 31, revenue: 2500 },
+  { date: new Date('2024-03-07'), detections: 42, assetsProtected: 105, botsBlocked: 38, revenue: 2100 },
+  { date: new Date('2024-03-08'), detections: 28, assetsProtected: 73, botsBlocked: 21, revenue: 2400 },
+];
+
+export const mockPerformanceMetrics: PerformanceData[] = [
+  { metric: 'Detection Accuracy', value: 94.2, trend: 'up', change: 2.3 },
+  { metric: 'Response Time (ms)', value: 123, trend: 'down', change: -15 },
+  { metric: 'Assets Protected', value: 8420, trend: 'up', change: 340 },
+  { metric: 'Threats Blocked', value: 12847, trend: 'up', change: 847 },
+];
+
+export const mockPlatformStatus: PlatformStatus[] = [
+  { service: 'DNA Profiling Engine', status: 'online', uptime: 99.98, latency: 45 },
+  { service: 'Threat Detection AI', status: 'online', uptime: 99.95, latency: 78 },
+  { service: 'Blockchain Ledger', status: 'online', uptime: 99.99, latency: 156 },
+  { service: 'Bot Network Monitor', status: 'online', uptime: 99.87, latency: 92 },
+  { service: 'Media Verification', status: 'degraded', uptime: 98.42, latency: 234 },
+  { service: 'Analytics Dashboard', status: 'online', uptime: 99.99, latency: 23 },
+];
